@@ -1,0 +1,11 @@
+.link_button{
+    width: 103%;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #247ED8;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+}
