@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    padding: 30px;
+    height: 40vh;
+    justify-content: space-between;
+    background-color: rgba(169, 169, 169, 0.995);
+    border-radius: 10px;
+}
