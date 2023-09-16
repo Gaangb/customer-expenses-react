@@ -5,11 +5,38 @@ import { useCustomer } from "../../hooks/CustomerHooks";
 import InputSearch from "../inputSearch";
 
 export default function Header() {
-  const { showFormExpense, setShowFormExpense } = useCustomer();
+  const {
+    showFormExpense,
+    currentExpense,
+    expenses,
+    newId,
+    filteredExpenses,
+    setShowFormExpense,
+    setCurrentExpense,
+    setExpenses,
+    setNewId,
+    setFilteredExpenses,
+  } = useCustomer();
 
   function onButtonClick() {
     setShowFormExpense(true);
   }
+
+  function handleSearchExpenses(e) {
+      const inputValue = e.target.value.toLowerCase();
+      // Verifique se há algum valor na caixa de pesquisa
+      if (!inputValue.trim()) {
+        setFilteredExpenses([...expenses]);
+        return;
+      }
+  
+      const filterExpenses = expenses.filter(expense =>
+        expense.category.toLowerCase().includes(inputValue)
+      );
+  
+      setFilteredExpenses(filterExpenses);
+      console.log(filteredExpenses)
+    }     
 
   return (
     <div>
@@ -20,7 +47,7 @@ export default function Header() {
           <VscAdd />
         </button>
       </div>
-      <InputSearch />
+      <InputSearch onChange={handleSearchExpenses} />
     </div>
   );
 }

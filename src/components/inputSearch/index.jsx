@@ -6,7 +6,7 @@ export default function InputSearch({onChange}) {
   return (
     <div className='container_search'>
         <BiSearch/>
-        <input type="text" placeholder="Pesquisar" onChange={onChange} className="search"/> 
+        <input type="text" placeholder="Pesquise uma categoria" onChange={onChange} className="search"/> 
     </div>
      );
 }

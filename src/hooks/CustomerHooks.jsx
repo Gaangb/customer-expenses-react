@@ -4,6 +4,7 @@ const CustomerContext = createContext()
 
 export function CustomerProvider({children}){
     const [expenses, setExpenses] = useState([])
+    const [filteredExpenses, setFilteredExpenses] = useState([])
     const [showFormExpense, setShowFormExpense] = useState(false)
     const [newId, setNewId] = useState(null)
     const [currentExpense, setCurrentExpense] = useState({
@@ -20,10 +21,12 @@ export function CustomerProvider({children}){
             currentExpense,
             expenses,
             newId,
+            filteredExpenses,
             setShowFormExpense,
             setCurrentExpense,
             setExpenses,
-            setNewId
+            setNewId,
+            setFilteredExpenses,
         }}>
             {children}
         </CustomerContext.Provider>
