@@ -18,6 +18,12 @@ export default function FormExpenses() {
 
   function onCancelButtonClick() {
     setShowFormExpense(false);
+    setCurrentExpense({
+      category: "",
+      value: 0,
+      date: "",
+      description: "",
+    });
   }
 
   function onConfirmClick() {
@@ -34,20 +40,18 @@ export default function FormExpenses() {
       setShowFormExpense(false);
     } else {
       const newExpenseId = Date.now();
-  
+
       setShowFormExpense(false);
-  
       setExpenses([...expenses, { ...currentExpense, id: newExpenseId }]);
-  
       setNewId(newExpenseId + 1);
-  
-      setCurrentExpense({
-        category: "",
-        value: 0,
-        date: "",
-        description: "",
-      });
     }
+
+    setCurrentExpense({
+      category: "",
+      value: 0,
+      date: "",
+      description: "",
+    });
   }
   
 

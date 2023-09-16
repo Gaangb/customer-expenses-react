@@ -26,7 +26,8 @@ export default function Header() {
       const inputValue = e.target.value.toLowerCase();
       // Verifique se há algum valor na caixa de pesquisa
       if (!inputValue.trim()) {
-        setFilteredExpenses([...expenses]);
+        setFilteredExpenses(expenses);
+        console.log("Sem filtro: ", filteredExpenses)
         return;
       }
   
@@ -34,7 +35,7 @@ export default function Header() {
         expense.category.toLowerCase().includes(inputValue)
       );
   
-      setFilteredExpenses(filterExpenses);
+      setFilteredExpenses("filtradas: ",filterExpenses);
       console.log(filteredExpenses)
     }     
 
