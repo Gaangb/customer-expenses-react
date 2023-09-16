@@ -10,8 +10,6 @@ export default function ExpensiveCard({
   expenseDescription,
 }) {
   const {
-    showFormExpense,
-    currentExpense,
     expenses,
     setShowFormExpense,
     setCurrentExpense,
@@ -22,6 +20,7 @@ export default function ExpensiveCard({
     setShowFormExpense(true);
     const editedExpense = expenses.find((expense) => expense.id === id);
     setCurrentExpense({
+      id: editedExpense.id,  
       category: editedExpense.category,
       value: editedExpense.value,
       date: editedExpense.date,
