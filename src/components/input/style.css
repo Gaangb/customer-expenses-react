@@ -4,6 +4,8 @@ input{
     border-radius: 5px;
     padding: 4px;
     border-color: rgb(205, 205, 205);
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .search{
