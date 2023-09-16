@@ -1,14 +1,32 @@
 import ExpensiveCard from "../expensiveCard";
 import "./style.css";
 import { useCustomer } from "../../hooks/CustomerHooks";
+import { useEffect } from "react";
 
 export default function ExpenseList() {
-  const { showFormExpense, expense, expenses, setShowFormExpense, setExpense, setExpenses } =
-    useCustomer();
+  const {
+    showFormExpense,
+    expense,
+    expenses,
+    filteredExpenses,
+    isFiltered,
+    setShowFormExpense,
+    setExpense,
+    setExpenses,
+    setFilteredExpenses,
+    setIsFiltered,
+  } = useCustomer();
 
+  useEffect(()=>{
+    if(!isFiltered){
+      setFilteredExpenses(expenses)
+    }
+  },[expenses, isFiltered, setFilteredExpenses])
+
+  const renderExpenses = isFiltered ? filteredExpenses : expenses
   return (
     <div className="container_list">
-      {expenses.map((note) => (
+      {renderExpenses.map((note) => (
         <div key={note.id}>
           <ExpensiveCard
             id={note.id}
