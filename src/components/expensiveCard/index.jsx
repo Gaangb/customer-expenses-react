@@ -18,18 +18,21 @@ export default function ExpensiveCard({
     setExpenses,
   } = useCustomer();
 
-  function handleEdit(id){
-    setShowFormExpense(true)
-    setCurrentExpense(expenses.filter(expense => expense.id === id))
-    // const updateExpenses = expenses.filter(expense => expense.id === id)
-    // setExpenses(updateExpenses)
-    console.log(currentExpense)
+  function handleEdit(id) {
+    setShowFormExpense(true);
+    const editedExpense = expenses.find((expense) => expense.id === id);
+    setCurrentExpense({
+      category: editedExpense.category,
+      value: editedExpense.value,
+      date: editedExpense.date,
+      description: editedExpense.description,
+    });
   }
 
-  function handleDelete(id){
-    const updateExpenses = expenses.filter(expense => expense.id !== id)
-    setExpenses(updateExpenses)
-    console.log(id)
+  function handleDelete(id) {
+    const updateExpenses = expenses.filter((expense) => expense.id !== id);
+    setExpenses(updateExpenses);
+    console.log(id);
   }
 
   return (
