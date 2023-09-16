@@ -7,10 +7,11 @@ export function CustomerProvider({children}){
     const [filteredExpenses, setFilteredExpenses] = useState([])
     const [showFormExpense, setShowFormExpense] = useState(false)
     const [newId, setNewId] = useState(null)
+    const [isFiltered, setIsFiltered] = useState(false)
     const [currentExpense, setCurrentExpense] = useState({
         id: 0,
         category: "",
-        value: 0,
+        value: null,
         date: "",
         description: ""
     })
@@ -22,11 +23,13 @@ export function CustomerProvider({children}){
             expenses,
             newId,
             filteredExpenses,
+            isFiltered,
             setShowFormExpense,
             setCurrentExpense,
             setExpenses,
             setNewId,
             setFilteredExpenses,
+            setIsFiltered,
         }}>
             {children}
         </CustomerContext.Provider>

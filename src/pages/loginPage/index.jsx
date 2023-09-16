@@ -59,11 +59,11 @@ export function LoginPage(){
         <h1>Login</h1>
         <div className='login_input'>
             <label>Email</label>
-            <Input type="email" placeholder="Digite seu E-mail" onChange={handleChangeEmail} maxLength={30}/>
+            <Input title="E-mail" type="email" placeholder="Digite seu E-mail" onChange={handleChangeEmail} maxLength={30}/>
         </div>
         <div className='login_input'>
             <label>Senha</label>
-            <Input type="password" placeholder="Digite sua senha" onChange={handleChangePassword} maxLength={12}/>
+            <Input title="Senha" type="password" placeholder="Digite sua senha" onChange={handleChangePassword} maxLength={12}/>
             {renderError()}
         </div>
         <Button onClick={onClickLogin} text="Login" customClass="link_button"/>
