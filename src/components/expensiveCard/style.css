@@ -1,6 +1,43 @@
 .container_card{
-    background-color:rgb(182, 182, 182) ;
-    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+    background-color:rgb(231, 231, 231) ;
+    padding: 14px;
     border-radius: 5px;
     margin: 5px 0px;
+    align-items: center;
+}
+
+.container_card_rigth{
+    display: flex;
+}
+
+.container_card_buttons{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_card_buttons > button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 4px;
+    width: 2vw;
+    border: 1px solid black;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.container_card_texts > p:first-of-type{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.container_card_texts > p:last-child{
+    font-size: 14px;
 }
