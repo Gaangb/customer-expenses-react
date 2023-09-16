@@ -5,6 +5,27 @@
     padding: 30px;
     height: 40vh;
     justify-content: space-between;
-    background-color: rgba(169, 169, 169, 0.995);
+    background-color: rgba(255, 255, 255, 0.995);
     border-radius: 10px;
+    position: relative;
+}
+
+.customer_container{
+    width: 50vw;
+    height: 60vh;
+    justify-content: flex-start;
+}
+
+.form_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45vw;
+    height: 45vh;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.995);
+    top: 50px;
+    left: 50px;
+    border-radius: 5px;
+    padding: 20px 0px;
 }
