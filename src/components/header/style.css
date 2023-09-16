@@ -1,0 +1,18 @@
+.container_header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.container_header > button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#247ED8;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
