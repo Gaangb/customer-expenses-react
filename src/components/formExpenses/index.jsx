@@ -21,17 +21,35 @@ export default function FormExpenses() {
   }
 
   function onConfirmClick() {
-    setShowFormExpense(false);
-    setNewId((prev) => prev + 1);
-    setExpenses([...expenses, { ...currentExpense, id: newId }]);
-    setCurrentExpense({
-      category: "",
-      value: "",
-      date: "",
-      description: "",
-    });
-    console.log(expenses);
+    if (currentExpense.id) {
+      const updatedExpenses = expenses.map(expense => {
+        if (expense.id === currentExpense.id) {
+          return { ...currentExpense }; // Usando spread para copiar os valores
+        } else {
+          return expense;
+        }
+      });
+  
+      setExpenses(updatedExpenses);
+      setShowFormExpense(false);
+    } else {
+      const newExpenseId = Date.now();
+  
+      setShowFormExpense(false);
+  
+      setExpenses([...expenses, { ...currentExpense, id: newExpenseId }]);
+  
+      setNewId(newExpenseId + 1);
+  
+      setCurrentExpense({
+        category: "",
+        value: 0,
+        date: "",
+        description: "",
+      });
+    }
   }
+  
 
   function handleInputChange(event) {
     const { name, value } = event.target;
