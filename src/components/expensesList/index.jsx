@@ -1,42 +1,24 @@
 import ExpensiveCard from "../expensiveCard";
-import './style.css'
+import "./style.css";
+import { useCustomer } from "../../hooks/CustomerHooks";
 
-export default function ExpenseList(){
-    const notes = [
-        {
-          category: "Energia",
-          value: 90,
-          date: "15/09/2022",
-          description: "shashahsahsa"
-        },
-        {
-          category: "Energia",
-          value: 90,
-          date: "15/09/2022",
-          description: "shashahsahsa"
-        },
-        {
-          category: "Energia",
-          value: 90,
-          date: "15/09/2022",
-          description: "shashahsahsa"
-        },
-        {
-          category: "Energia",
-          value: 90,
-          date: "15/09/2022",
-          description: "shashahsahsa"
-        }
-    
-      ]
+export default function ExpenseList() {
+  const { showFormExpense, expense, expenses, setShowFormExpense, setExpense, setExpenses } =
+    useCustomer();
 
-    return(
-        <div className="container_list">
-            {notes.map(note =>(
-                <div key={note.id}>
-                    <ExpensiveCard taskType={note.category} taskValue={note.value} taskDate={note.date} taskDescription={note.description}/>
-                </div>
-            ))}
+  return (
+    <div className="container_list">
+      {expenses.map((note) => (
+        <div key={note.id}>
+          <ExpensiveCard
+            id={note.id}
+            expenseType={note.category}
+            expenseValue={note.value}
+            expenseDate={note.date}
+            expenseDescription={note.description}
+          />
         </div>
-    );
+      ))}
+    </div>
+  );
 }
