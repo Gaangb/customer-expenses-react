@@ -5,7 +5,7 @@ const CustomerContext = createContext()
 export function CustomerProvider({children}){
     const [expenses, setExpenses] = useState([])
     const [showFormExpense, setShowFormExpense] = useState(false)
-    const [newId, setNewId] = useState(1)
+    const [newId, setNewId] = useState(null)
     const [currentExpense, setCurrentExpense] = useState({
         id: 0,
         category: "",
