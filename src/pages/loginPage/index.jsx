@@ -66,7 +66,7 @@ export function LoginPage(){
             <Input type="password" placeholder="Digite sua senha" onChange={handleChangePassword} maxLength={12}/>
             {renderError()}
         </div>
-        <Button onClick={onClickLogin} text="Login"/>
+        <Button onClick={onClickLogin} text="Login" customClass="link_button"/>
     </Container>
   )
 }
