@@ -10,6 +10,10 @@
     text-decoration: none;
 }
 
+.link_button:hover{
+    background-color: #378ce1;
+}
+
 .form_button{
     width: 48%;
     padding: 8px;
@@ -19,4 +23,8 @@
     color: white;
     border: none;
     text-align: center;
+}
+
+.form_button:hover{
+    background-color: #378ce1;
 }
