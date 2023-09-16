@@ -1,0 +1,30 @@
+.form_search{
+    display: flex;
+    border: 2px solid gray;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    width: 80%;
+    margin: auto;
+}
+
+.form_select > select{
+    display: flex;
+    border: 2px solid gray;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 82%;
+    margin: auto;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.form_container_button{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+}
