@@ -20,7 +20,7 @@ export default function FormExpenses() {
     setShowFormExpense(false);
     setCurrentExpense({
       category: "",
-      value: 0,
+      value: null,
       date: "",
       description: "",
     });
@@ -48,7 +48,7 @@ export default function FormExpenses() {
 
     setCurrentExpense({
       category: "",
-      value: 0,
+      value: null,
       date: "",
       description: "",
     });
