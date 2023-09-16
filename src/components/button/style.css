@@ -9,3 +9,14 @@
     text-align: center;
     text-decoration: none;
 }
+
+.form_button{
+    width: 48%;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #247ED8;
+    color: white;
+    border: none;
+    text-align: center;
+}
