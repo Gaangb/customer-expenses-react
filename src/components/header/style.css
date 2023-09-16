@@ -11,8 +11,53 @@
     justify-content: center;
     align-items: center;
     background-color:#247ED8;
+    color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.Container_Filters{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0px;
+    margin: 4px 0;
+}
+.container_header > button:hover{
+    background-color: #378ce1;
+}
+
+.container_header > button:active,
+.container_header > button:focus{
+    background-color: #374f67;
+}
+
+.Container_Filters > div{
+    display: flex;
+    justify-content: space-between;
+    width: 10vw;
+}
+
+.Container_Filters > div > button{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:#247ED8;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Container_Filters > div > button:hover{
+    background-color: #378ce1;
+}
+
+.Container_Filters > div > button:active,
+.Container_Filters > div > button:focus{
+    background-color: #374f67;
 }

@@ -1,4 +1,4 @@
-import { VscAdd, VscEdit } from "react-icons/vsc";
+import { VscAdd, VscEdit, VscFold } from "react-icons/vsc";
 import "./style.css";
 import FormExpenses from "../formExpenses";
 import { useCustomer } from "../../hooks/CustomerHooks";
@@ -11,11 +11,13 @@ export default function Header() {
     expenses,
     newId,
     filteredExpenses,
+    isFiltered,
     setShowFormExpense,
     setCurrentExpense,
     setExpenses,
     setNewId,
     setFilteredExpenses,
+    setIsFiltered,
   } = useCustomer();
 
   function onButtonClick() {
@@ -23,21 +25,19 @@ export default function Header() {
   }
 
   function handleSearchExpenses(e) {
-      const inputValue = e.target.value.toLowerCase();
-      // Verifique se há algum valor na caixa de pesquisa
-      if (!inputValue.trim()) {
-        setFilteredExpenses(expenses);
-        console.log("Sem filtro: ", filteredExpenses)
-        return;
-      }
-  
-      const filterExpenses = expenses.filter(expense =>
-        expense.category.toLowerCase().includes(inputValue)
-      );
-  
-      setFilteredExpenses("filtradas: ",filterExpenses);
-      console.log(filteredExpenses)
-    }     
+    const inputValue = e.target.value.toLowerCase();
+    // Verifique se há algum valor na caixa de pesquisa
+    if (!inputValue.trim()) {
+      setFilteredExpenses(expenses);
+      return;
+    }
+
+    const filterExpenses = expenses.filter((expense) =>
+      expense.category.toLowerCase().includes(inputValue)
+    );
+    setIsFiltered(true);
+    setFilteredExpenses(filterExpenses);
+  }
 
   return (
     <div>
@@ -49,6 +49,14 @@ export default function Header() {
         </button>
       </div>
       <InputSearch onChange={handleSearchExpenses} />
+			<div className="Container_Filters">
+				<div>
+					<button type="button">Categoria<VscFold/></button>
+				</div>
+				<div>
+					<button type="button">Valor<VscFold/></button>
+				</div>
+				</div>
     </div>
   );
 }
