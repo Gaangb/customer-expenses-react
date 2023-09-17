@@ -1,12 +1,17 @@
-import React from 'react'
-import './style.css'
-import {BiSearch} from "react-icons/bi"
+import React from "react";
+import "./style.css";
+import { BiSearch } from "react-icons/bi";
 
-export default function InputSearch({onChange}) {
+export default function InputSearch({ onChange }) {
   return (
-    <div className='container_search'>
-        <BiSearch/>
-        <input type="text" placeholder="Pesquise uma categoria" onChange={onChange} className="search"/> 
+    <div className="container_search">
+      <BiSearch />
+      <input
+        type="text"
+        placeholder="Pesquise uma categoria"
+        onChange={onChange}
+        className="search"
+      />
     </div>
-     );
+  );
 }
