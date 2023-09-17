@@ -1,0 +1,22 @@
+.buttonLogo{
+    background-color: #247ed8;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    margin-left: 1vw;
+}
+
+.buttonLogo > img{
+    width: 10vw;
+}
+
+@media (max-width: 490px) {
+    .buttonLogo{
+        justify-content: center;
+        width: 100vw;
+        margin-left: 0vw;
+    }
+    .buttonLogo > img{
+        width: 50vw;
+    }
+}
