@@ -1,6 +1,7 @@
 import { VscEdit, VscTrash } from "react-icons/vsc";
 import "./style.css";
 import { useCustomer } from "../../hooks/CustomerHooks";
+import { useEffect } from "react";
 
 export default function ExpensiveCard({
   id,
@@ -9,6 +10,7 @@ export default function ExpensiveCard({
   expenseDate,
   expenseDescription,
 }) {
+
   const {
     expenses,
     setShowFormExpense,
@@ -20,7 +22,7 @@ export default function ExpensiveCard({
     setShowFormExpense(true);
     const editedExpense = expenses.find((expense) => expense.id === id);
     setCurrentExpense({
-      id: editedExpense.id,  
+      id: editedExpense.id,
       category: editedExpense.category,
       value: editedExpense.value,
       date: editedExpense.date,

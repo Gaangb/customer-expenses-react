@@ -1,11 +1,9 @@
-import './style.css'
+import "./style.css";
 
-export default function Button({ text, onClick, customClass}){
-    return(
-        <button type='button' className={customClass} onClick={onClick}> 
-            {text}
-        </button>
-            
-    )
+export default function Button({ text, onClick, customClass }) {
+  return (
+    <button type="button" className={customClass} onClick={onClick}>
+      {text}
+    </button>
+  );
 }
-
