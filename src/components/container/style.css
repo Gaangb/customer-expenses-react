@@ -29,3 +29,17 @@
     border-radius: 5px;
     padding: 20px 0px;
 }
+
+@media (max-width: 490px){
+    .container{
+        width: 74vw;
+    }
+
+    .customer_container{
+        width: 74vw;
+    }
+    .form_container{
+        width: 70vw;
+        left: 12vw;
+    }
+}

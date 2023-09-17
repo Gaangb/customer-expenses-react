@@ -34,6 +34,11 @@
     background-color: #374f67;
 }
 
+.container_header > button:active::after,
+.container_header > button:focus::after{
+    background-color: #247ED8;
+}
+
 .Container_Filters > div{
     display: flex;
     justify-content: space-between;
@@ -57,7 +62,11 @@
     background-color: #378ce1;
 }
 
-.Container_Filters > div > button:active,
-.Container_Filters > div > button:focus{
-    background-color: #374f67;
+@media (max-width: 490px){
+    .Container_Filters > div{
+        width: 30vw;
+    }
+    .container_header{
+        font-size: 25px;
+    }
 }

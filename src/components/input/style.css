@@ -1,15 +1,14 @@
-input{
-    width: 100%;
-    height: 30px;
-    border-radius: 5px;
-    padding: 4px;
-    border-color: rgb(205, 205, 205);
-    text-overflow: ellipsis;
-    overflow: hidden;
+input {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  padding: 4px;
+  border-color: rgb(205, 205, 205);
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-.search{
-    border: none;
-    outline: none;
+.search {
+  border: none;
+  outline: none;
 }
-
