@@ -1,20 +1,28 @@
+import { useParams } from "react-router-dom";
+
+import { useCustomer } from "../../hooks/CustomerHooks";
 import Button from "../button";
 import Container from "../container";
 import Input from "../input";
 import "./style.css";
-import { useCustomer } from "../../hooks/CustomerHooks";
 
 export default function FormExpenses() {
   const {
-    showFormExpense,
     currentExpense,
     expenses,
-    newId,
     setShowFormExpense,
     setCurrentExpense,
     setExpenses,
     setNewId,
   } = useCustomer();
+
+  let { id } = useParams();
+
+  const valuesNotSet =
+    !currentExpense.category ||
+    !currentExpense.value ||
+    !currentExpense.date ||
+    !currentExpense.description;
 
   function onCancelButtonClick() {
     setShowFormExpense(false);
@@ -26,34 +34,45 @@ export default function FormExpenses() {
     });
   }
 
+  console.log("novaID: ", id)
   function onConfirmClick() {
-    if (currentExpense.id) {
-      const updatedExpenses = expenses.map(expense => {
-        if (expense.id === currentExpense.id) {
-          return { ...currentExpense }; // Usando spread para copiar os valores
-        } else {
-          return expense;
-        }
-      });
-  
-      setExpenses(updatedExpenses);
-      setShowFormExpense(false);
+    if (valuesNotSet) {
+      setShowFormExpense(true);
+      if (!currentExpense.category) {
+        alert("Escolha uma categoria");
+      } else if (!currentExpense.value) {
+        alert("Digite um valor");
+      } else if (!currentExpense.date) {
+        alert("Selecione uma data");
+      } else if (!currentExpense.description) {
+        alert("Insira uma descrição");
+      }
     } else {
-      const newExpenseId = Date.now();
+      if (currentExpense.id) {
+        const updatedExpenses = expenses.map((expense) =>
+          expense.id === currentExpense.id ? { ...currentExpense } : expense
+        );
+        setExpenses(updatedExpenses);
+        setShowFormExpense(false);
+      } else {
+        const newExpenseId = Date.now();
 
-      setShowFormExpense(false);
-      setExpenses([...expenses, { ...currentExpense, id: newExpenseId }]);
-      setNewId(newExpenseId + 1);
+        setShowFormExpense(false);
+        setExpenses([
+          ...expenses,
+          { ...currentExpense, id: newExpenseId, userId: id },
+        ]);
+        setNewId(newExpenseId + 1);
+      }
+
+      setCurrentExpense({
+        category: "",
+        value: null,
+        date: "",
+        description: "",
+      });
     }
-
-    setCurrentExpense({
-      category: "",
-      value: null,
-      date: "",
-      description: "",
-    });
   }
-  
 
   function handleInputChange(event) {
     const { name, value } = event.target;
