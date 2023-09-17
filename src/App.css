@@ -1,8 +1,8 @@
-.container_geral{
+.container_geral {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #247ED8;
+  background-color: #247ed8;
 }

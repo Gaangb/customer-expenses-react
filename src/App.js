@@ -3,6 +3,7 @@ import { CustomerProvider } from './hooks/CustomerHooks';
 import CustomerPage from './pages/customerPage';
 import { LoginPage } from './pages/loginPage';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { useCustomer } from './hooks/CustomerHooks';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <CustomerProvider>
           <Routes>
             <Route path="/" element={<LoginPage/>}/>
-            <Route path="/customer" element={<CustomerPage/>}/>
+            <Route path="/customer/:id" element={<CustomerPage/>}/>
           </Routes>
         </CustomerProvider>
       </div>
