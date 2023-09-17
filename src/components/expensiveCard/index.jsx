@@ -1,7 +1,7 @@
-import { VscEdit, VscTrash } from "react-icons/vsc";
-import "./style.css";
-import { useCustomer } from "../../hooks/CustomerHooks";
 import { useEffect } from "react";
+import { VscEdit, VscTrash } from "react-icons/vsc";
+import { useCustomer } from "../../hooks/CustomerHooks";
+import "./style.css";
 
 export default function ExpensiveCard({
   id,

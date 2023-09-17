@@ -4,6 +4,33 @@
     display: flex;
     align-items: center;
     margin-left: 1vw;
+    justify-content: space-between;
+}
+
+.navButtons > button{
+    padding: 4px;
+    margin-right: 1vw;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.navButtons > button:first-child,
+.navButtons > button:nth-child(2){
+    background-color: transparent;
+}
+
+.navButtons > button:first-child:hover,
+.navButtons > button:nth-child(2):hover,
+.navButtons > button:nth-child(3):hover{
+
+    font-weight: bold;
+}
+
+.navButtons > button:nth-child(3){
+    width: 60px;
+    background-color: #CC0000;
 }
 
 .buttonLogo > img{

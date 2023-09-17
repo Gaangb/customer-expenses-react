@@ -8,6 +8,7 @@ export function CustomerProvider({ children }) {
   const [showFormExpense, setShowFormExpense] = useState(false);
   const [newId, setNewId] = useState(null);
   const [isFiltered, setIsFiltered] = useState(false);
+  const [isLogged, setIsLogged] = useState(false)
   const [currentExpense, setCurrentExpense] = useState({
     userId: null,
     id: 0,
@@ -20,20 +21,20 @@ export function CustomerProvider({ children }) {
   return (
     <CustomerContext.Provider
       value={{
-        // profile,
         showFormExpense,
         currentExpense,
         expenses,
         newId,
         filteredExpenses,
         isFiltered,
-        // setProfile,
+        isLogged,
         setShowFormExpense,
         setCurrentExpense,
         setExpenses,
         setNewId,
         setFilteredExpenses,
         setIsFiltered,
+        setIsLogged,
       }}
     >
       {children}

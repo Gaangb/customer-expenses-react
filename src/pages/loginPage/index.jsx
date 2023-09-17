@@ -4,39 +4,33 @@ import Input from "../../components/input";
 import "./style.css";
 import Button from "../../components/button";
 import Container from "../../components/container";
-
+import { useCustomer } from "../../hooks/CustomerHooks";
 
 export function LoginPage() {
+  const { setIsLogged } =
+    useCustomer();
   const navigate = useNavigate();
   const [loginError, setLoginError] = useState(false);
   const [profile, setProfile] = useState({
     email: "",
     password: "",
     name: "",
-    id: 0
+    id: 0,
   });
-
-  const userProfile =
-    {
-        email: "fliffi@gmail.com",
-        password: "snape",
-        name: "Fliffi",
-        id: 0,
-    }
 
   const usersProfile = [
     {
-        email: "fliffi@gmail.com",
-        password: "snape",
-        name: "Fliffi",
-        id: 0,
+      email: "fliffi@gmail.com",
+      password: "snape",
+      name: "Fliffi",
+      id: 0,
     },
     {
-        email: "your@gmail",
-        password: "louis",
-        name: "Youru",
-        id: 1,
-    }
+      email: "your@gmail",
+      password: "louis",
+      name: "Youru",
+      id: 1,
+    },
   ];
 
   function renderError() {
@@ -58,6 +52,7 @@ export function LoginPage() {
 
     if (user) {
       navigate(`/customer/${user.id}`, { state: { value: user } });
+      setIsLogged(true)
     } else {
       console.log("Não entrou");
       setLoginError(true);
