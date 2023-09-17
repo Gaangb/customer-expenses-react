@@ -1,24 +1,40 @@
-import { VscAdd, VscEdit, VscFold } from "react-icons/vsc";
+import { VscAdd, VscFold } from "react-icons/vsc";
 import "./style.css";
 import FormExpenses from "../formExpenses";
 import { useCustomer } from "../../hooks/CustomerHooks";
 import InputSearch from "../inputSearch";
+import ButtonChangingColor from "../buttonChangingColor";
+import { useEffect, useState } from "react";
 
 export default function Header() {
   const {
     showFormExpense,
-    currentExpense,
     expenses,
-    newId,
-    filteredExpenses,
-    isFiltered,
+		filteredExpenses,
+		isFiltered,
     setShowFormExpense,
-    setCurrentExpense,
-    setExpenses,
-    setNewId,
     setFilteredExpenses,
     setIsFiltered,
   } = useCustomer();
+
+	const [isCategorySorted, setIsCategorySorted] = useState(false)
+	const [isValueSorted, setIsValueSorted] = useState(false)
+  const [isButtonColorCategory, setIsButtonColorCategory] = useState(false);
+  const [isButtonColorValue, setIsButtonColorValue] = useState(false);
+
+	function sortExpensesByCategory() {
+		const sortedExpenses = [...expenses];
+	
+		sortedExpenses.sort((a, b) => {
+			const categoryA = a.category.toLowerCase();
+			const categoryB = b.category.toLowerCase();
+			if (categoryA < categoryB) return -1;
+			if (categoryA > categoryB) return 1;
+			return 0;
+		});
+	
+		return sortedExpenses;
+	}
 
   function onButtonClick() {
     setShowFormExpense(true);
@@ -26,7 +42,6 @@ export default function Header() {
 
   function handleSearchExpenses(e) {
     const inputValue = e.target.value.toLowerCase();
-    // Verifique se há algum valor na caixa de pesquisa
     if (!inputValue.trim()) {
       setFilteredExpenses(expenses);
       return;
@@ -39,6 +54,40 @@ export default function Header() {
     setFilteredExpenses(filterExpenses);
   }
 
+	console.log("fora: ", isCategorySorted)
+
+  function handleCategoryClick() {
+    console.log("entrou");
+		setIsCategorySorted(!isCategorySorted);
+    setIsValueSorted(false);
+    setIsButtonColorCategory(!isButtonColorCategory);
+    setIsButtonColorValue(false);
+    console.log("dentro: ", isCategorySorted)
+
+    if (isCategorySorted) {
+      console.log("entrou 2");
+      const sortedExpenses = sortExpensesByCategory();
+			setIsFiltered(!isFiltered);
+      setFilteredExpenses(sortedExpenses);
+
+    }
+  }
+
+  function handleValueClick() {
+		setIsButtonColorValue(!isButtonColorValue)
+    setIsButtonColorCategory(false)
+		setIsValueSorted(!isValueSorted)
+    setIsCategorySorted(false)
+    console.log("Outro evento de valor: ", isValueSorted);
+  }
+
+  // useEffect(() => {
+
+	// 	if(isFiltered){
+	// 		setFilteredExpenses(sortExpensesByCategory())
+	// 	}
+	// }, [isButtonColorCategory])
+
   return (
     <div>
       {showFormExpense ? <FormExpenses /> : null}
@@ -49,14 +98,26 @@ export default function Header() {
         </button>
       </div>
       <InputSearch onChange={handleSearchExpenses} />
-			<div className="Container_Filters">
-				<div>
-					<button type="button">Categoria<VscFold/></button>
-				</div>
-				<div>
-					<button type="button">Valor<VscFold/></button>
-				</div>
-				</div>
+      <div className="Container_Filters">
+        <div>
+          <ButtonChangingColor
+            onClick={handleCategoryClick}
+            type="button"
+            text="Categoria"
+            icon={<VscFold />}
+						isColor={isButtonColorCategory}
+          />
+        </div>
+        <div>
+          <ButtonChangingColor
+            onClick={handleValueClick}
+            type="button"
+            text="Valor"
+            icon={<VscFold />}
+						isColor={isButtonColorValue}
+          />
+        </div>
+      </div>
     </div>
   );
 }
