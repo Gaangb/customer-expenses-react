@@ -24,26 +24,37 @@
 .navButtons > button:first-child:hover,
 .navButtons > button:nth-child(2):hover,
 .navButtons > button:nth-child(3):hover{
-
     font-weight: bold;
 }
 
 .navButtons > button:nth-child(3){
-    width: 60px;
-    background-color: #CC0000;
+    width: 83px;
+    border: 1px solid #fff;
+    background: #247ED8;
+    color: #fff;
 }
 
-.buttonLogo > img{
-    width: 10vw;
+.navButtons > button:nth-child(3):hover{
+    background: #ffff;
+    color: #247ED8;
 }
+
+
+
+
 
 @media (max-width: 490px) {
     .buttonLogo{
-        justify-content: center;
+        justify-content: space-around;
         width: 100vw;
         margin-left: 0vw;
+        flex-direction: column;
+        height: 20vh;
     }
-    .buttonLogo > img{
-        width: 50vw;
+
+    .navButtons{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
     }
 }
