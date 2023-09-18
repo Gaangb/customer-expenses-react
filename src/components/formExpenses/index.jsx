@@ -34,7 +34,6 @@ export default function FormExpenses() {
     });
   }
 
-  //console.log("novaID: ", id)
   function onConfirmClick() {
     if (valuesNotSet) {
       setShowFormExpense(true);

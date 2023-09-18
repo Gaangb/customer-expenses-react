@@ -7,8 +7,7 @@ import Container from "../../components/container";
 import { useCustomer } from "../../hooks/CustomerHooks";
 
 export function LoginPage() {
-  const { setIsLogged } =
-    useCustomer();
+  const { setIsLogged } = useCustomer();
   const navigate = useNavigate();
   const [loginError, setLoginError] = useState(false);
   const [profile, setProfile] = useState({
@@ -51,11 +50,10 @@ export function LoginPage() {
     );
 
     if (user) {
-      localStorage.setItem('loggedInUser', JSON.stringify(user));
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
       navigate(`/customer/${user.id}`, { state: { value: user } });
-      setIsLogged(true)
+      setIsLogged(true);
     } else {
-      console.log("Não entrou");
       setLoginError(true);
     }
   }
@@ -98,7 +96,11 @@ export function LoginPage() {
         />
         {renderError()}
       </div>
-      <Button onClick={() => onClickLogin()} text="Login" customClass="link_button" />
+      <Button
+        onClick={() => onClickLogin()}
+        text="Login"
+        customClass="link_button"
+      />
     </Container>
   );
 }

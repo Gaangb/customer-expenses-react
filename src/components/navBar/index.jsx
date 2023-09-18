@@ -1,27 +1,21 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCustomer } from "../../hooks/CustomerHooks";
 import logoZenze from "../../assets/logoZenze.svg";
 import "./style.css";
 
 export default function NavBar() {
-  const { isLogged, setIsLogged, expenses, setExpenses } = useCustomer();
+  const { isLogged, setIsLogged, setExpenses } = useCustomer();
   const navigate = useNavigate();
-  let { id } = useParams();
-  let userId = id
 
   let loggedInUser = null;
-    // Recupera as informações do usuário do Local Storage
-    const loggedInUserJSON = localStorage.getItem("loggedInUser");
 
-    if (loggedInUserJSON) {
-      loggedInUser = JSON.parse(loggedInUserJSON);
-      setIsLogged(true)
-      // Faça o que for necessário com os dados do usuário logado
-      console.log(loggedInUser);
-    }
+  const loggedInUserJSON = localStorage.getItem("loggedInUser");
+
+  if (loggedInUserJSON) {
+    loggedInUser = JSON.parse(loggedInUserJSON);
+    setIsLogged(true)
+  }
   
-  //console.log("otaID: ", id)
-
   function handleNavigateToCustomer(userId) {
     setIsLogged(true);
     navigate(`/customer/${userId}`);

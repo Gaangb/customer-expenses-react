@@ -1,14 +1,19 @@
-import React, { useState } from "react";
-
-export default function ButtonChangingColor({ type, onClick, text, icon, isColor }) {
-
-  const buttonColor = isColor ? "#374f67" : "#378ce1";
+import React from "react";
+export default function ButtonChangingColor({
+  type,
+  onClick,
+  text,
+  icon,
+  isColor,
+}) {
+  const buttonColor = isColor ? "#378ce1" : "#fff";
+  const fontColor = isColor ? "#fff" : "#378ce1";
 
   return (
     <button
       type={type}
       onClick={onClick}
-      style={{ backgroundColor: buttonColor, color: "#fff" }}
+      style={{ backgroundColor: buttonColor, color: fontColor }}
     >
       {text}
       {icon}

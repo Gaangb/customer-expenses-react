@@ -1,40 +1,56 @@
-import { VscAdd, VscFold } from "react-icons/vsc";
-import "./style.css";
-import FormExpenses from "../formExpenses";
+import { useEffect, useState } from "react";
+
 import { useCustomer } from "../../hooks/CustomerHooks";
+import { VscAdd } from "react-icons/vsc";
+import { TiSortAlphabetically } from "react-icons/ti";
+import { PiListNumbersBold } from "react-icons/pi";
+
+import FormExpenses from "../formExpenses";
 import InputSearch from "../inputSearch";
 import ButtonChangingColor from "../buttonChangingColor";
-import { useEffect, useState } from "react";
+import "./style.css";
 
 export default function Header() {
   const {
     showFormExpense,
     expenses,
-		filteredExpenses,
-		isFiltered,
     setShowFormExpense,
     setFilteredExpenses,
     setIsFiltered,
   } = useCustomer();
 
-	const [isCategorySorted, setIsCategorySorted] = useState(false)
-	const [isValueSorted, setIsValueSorted] = useState(false)
+  const [isCategorySorted, setIsCategorySorted] = useState(false);
+  const [isValueSorted, setIsValueSorted] = useState(false);
   const [isButtonColorCategory, setIsButtonColorCategory] = useState(false);
   const [isButtonColorValue, setIsButtonColorValue] = useState(false);
 
-	function sortExpensesByCategory() {
-		const sortedExpenses = [...expenses];
-	
-		sortedExpenses.sort((a, b) => {
-			const categoryA = a.category.toLowerCase();
-			const categoryB = b.category.toLowerCase();
-			if (categoryA < categoryB) return -1;
-			if (categoryA > categoryB) return 1;
-			return 0;
-		});
-	
-		return sortedExpenses;
-	}
+  function sortExpensesByCategory() {
+    const sortedExpenses = [...expenses];
+
+    sortedExpenses.sort((a, b) => {
+      const categoryA = a.category.toLowerCase();
+      const categoryB = b.category.toLowerCase();
+      if (categoryA < categoryB) return -1;
+      if (categoryA > categoryB) return 1;
+      return 0;
+    });
+
+    return sortedExpenses;
+  }
+
+  function sortExpensesByValue() {
+    const sortedExpenses = [...expenses];
+
+    sortedExpenses.sort((a, b) => {
+      const valueA = parseFloat(a.value);
+      const valueB = parseFloat(b.value);
+      if (valueA < valueB) return -1;
+      if (valueA > valueB) return 1;
+      return 0;
+    });
+
+    return sortedExpenses;
+  }
 
   function onButtonClick() {
     setShowFormExpense(true);
@@ -54,39 +70,39 @@ export default function Header() {
     setFilteredExpenses(filterExpenses);
   }
 
-	console.log("fora: ", isCategorySorted)
-
   function handleCategoryClick() {
-    console.log("entrou");
-		setIsCategorySorted(!isCategorySorted);
+    setIsCategorySorted(!isCategorySorted);
     setIsValueSorted(false);
     setIsButtonColorCategory(!isButtonColorCategory);
     setIsButtonColorValue(false);
-    console.log("dentro: ", isCategorySorted)
-
-    if (isCategorySorted) {
-      console.log("entrou 2");
-      const sortedExpenses = sortExpensesByCategory();
-			setIsFiltered(!isFiltered);
-      setFilteredExpenses(sortedExpenses);
-
-    }
   }
 
   function handleValueClick() {
-		setIsButtonColorValue(!isButtonColorValue)
-    setIsButtonColorCategory(false)
-		setIsValueSorted(!isValueSorted)
-    setIsCategorySorted(false)
-    console.log("Outro evento de valor: ", isValueSorted);
+    setIsButtonColorValue(!isButtonColorValue);
+    setIsButtonColorCategory(false);
+    setIsValueSorted(!isValueSorted);
+    setIsCategorySorted(false);
   }
 
-  // useEffect(() => {
+  useEffect(() => {
+    if (isCategorySorted) {
+      const sortedExpenses = sortExpensesByCategory();
+      setFilteredExpenses(sortedExpenses);
+      setIsFiltered(true);
+    } else {
+      setIsFiltered(false);
+    }
+  }, [isCategorySorted]);
 
-	// 	if(isFiltered){
-	// 		setFilteredExpenses(sortExpensesByCategory())
-	// 	}
-	// }, [isButtonColorCategory])
+  useEffect(() => {
+    if (isValueSorted) {
+      const sortedExpenses = sortExpensesByValue();
+      setFilteredExpenses(sortedExpenses);
+      setIsFiltered(true);
+    } else {
+      setIsFiltered(false);
+    }
+  }, [isValueSorted]);
 
   return (
     <div>
@@ -104,8 +120,8 @@ export default function Header() {
             onClick={handleCategoryClick}
             type="button"
             text="Categoria"
-            icon={<VscFold />}
-						isColor={isButtonColorCategory}
+            icon={<TiSortAlphabetically />}
+            isColor={isButtonColorCategory}
           />
         </div>
         <div>
@@ -113,8 +129,8 @@ export default function Header() {
             onClick={handleValueClick}
             type="button"
             text="Valor"
-            icon={<VscFold />}
-						isColor={isButtonColorValue}
+            icon={<PiListNumbersBold />}
+            isColor={isButtonColorValue}
           />
         </div>
       </div>

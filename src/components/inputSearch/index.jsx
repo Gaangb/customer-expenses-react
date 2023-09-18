@@ -1,6 +1,6 @@
 import React from "react";
-import "./style.css";
 import { BiSearch } from "react-icons/bi";
+import "./style.css";
 
 export default function InputSearch({ onChange }) {
   return (

@@ -8,7 +8,7 @@ export function CustomerProvider({ children }) {
   const [showFormExpense, setShowFormExpense] = useState(false);
   const [newId, setNewId] = useState(null);
   const [isFiltered, setIsFiltered] = useState(false);
-  const [isLogged, setIsLogged] = useState(false)
+  const [isLogged, setIsLogged] = useState(false);
   const [currentExpense, setCurrentExpense] = useState({
     userId: null,
     id: 0,

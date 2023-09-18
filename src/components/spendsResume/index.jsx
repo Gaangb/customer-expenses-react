@@ -33,7 +33,7 @@ export function SpendsResume() {
 
   if (Array.isArray(expenses)) {
     totalExpenses = expenses.reduce((acc, expense) => {
-      const parsedAmount = parseFloat(expense.value); // Converte amount em um número
+      const parsedAmount = parseFloat(expense.value);
       return acc + parsedAmount;
     }, 0);
   }
@@ -43,14 +43,18 @@ export function SpendsResume() {
       <div className="custos_por_categoria">
         <h2>Despesas por Categoria:</h2>
         <ul>
-            <div className="categorias_title">
-                <div><p>Categoria</p></div>
-                <div><p>Valor</p></div>
+          <div className="categorias_title">
+            <div>
+              <p>Categoria</p>
             </div>
+            <div>
+              <p>Valor</p>
+            </div>
+          </div>
           {Object.entries(expensesByCategory).map(([category, total]) => (
             <div className="categorias_body" key={category}>
-                <p>{category}</p>
-                <p>R$ {total.toFixed(2)}</p>
+              <p>{category}</p>
+              <p>R$ {total.toFixed(2)}</p>
             </div>
           ))}
         </ul>

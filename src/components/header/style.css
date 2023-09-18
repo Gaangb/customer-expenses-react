@@ -1,72 +1,66 @@
-.container_header{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 30px;
+.container_header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #393737;
 }
 
-.container_header > button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:#247ED8;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
+.container_header > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #247ed8;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.Container_Filters{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 4px 0px;
-    margin: 4px 0;
+.Container_Filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0px;
+  margin: 4px 0;
 }
-.container_header > button:hover{
-    background-color: #378ce1;
+.container_header > button:hover {
+  background-color: #378ce1;
 }
 
 .container_header > button:active,
-.container_header > button:focus{
-    background-color: #374f67;
+.container_header > button:focus {
+  background-color: #374f67;
 }
 
 .container_header > button:active::after,
-.container_header > button:focus::after{
-    background-color: #247ED8;
+.container_header > button:focus::after {
+  background-color: #247ed8;
 }
 
-.Container_Filters > div{
-    display: flex;
-    justify-content: space-between;
-    width: 10vw;
+.Container_Filters > div {
+  display: flex;
+  justify-content: space-between;
+  width: 10vw;
 }
 
-.Container_Filters > div > button{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color:#247ED8;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    width: 100%;
-    border-radius: 5px;
-    cursor: pointer;
+.Container_Filters > div > button {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid rgb(55, 140, 225);
+  padding: 5px 10px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.Container_Filters > div > button:hover{
-    background-color: #378ce1;
-}
-
-@media (max-width: 490px){
-    .Container_Filters > div{
-        width: 30vw;
-    }
-    .container_header{
-        font-size: 25px;
-    }
+@media (max-width: 490px) {
+  .Container_Filters > div {
+    width: 30vw;
+  }
+  .container_header {
+    font-size: 25px;
+  }
 }
