@@ -1,6 +1,6 @@
 .form_search{
     display: flex;
-    border: 2px solid gray;
+    border: 1px solid gray;
     border-radius: 5px;
     justify-content: center;
     align-items: center;
@@ -11,15 +11,16 @@
 
 .form_select > select{
     display: flex;
-    border: 2px solid gray;
-    border-radius: 5px;
     justify-content: center;
     align-items: center;
-    padding: 8px;
     width: 82%;
+    padding: 8px;
     margin: auto;
     margin-bottom: 8px;
     margin-top: 8px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #fff;
 }
 
 .form_container_button{
