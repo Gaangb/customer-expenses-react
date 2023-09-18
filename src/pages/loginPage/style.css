@@ -1,9 +1,8 @@
+h1{
+  font-weight: 400;
+}
 .login_input > input {
   margin-top: 4px;
-}
-
-.login_input > label {
-  font-weight: bold;
 }
 
 .alert_error {
