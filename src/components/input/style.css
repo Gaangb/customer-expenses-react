@@ -1,9 +1,9 @@
 input {
   width: 100%;
-  height: 30px;
+  height: 20px;
   border-radius: 5px;
   padding: 4px;
-  border-color: rgb(205, 205, 205);
+  border: 1px solid gray;
   text-overflow: ellipsis;
   overflow: hidden;
 }

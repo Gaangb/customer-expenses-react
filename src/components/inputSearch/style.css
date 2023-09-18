@@ -2,9 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid gray;
+  border: 1px solid gray;
   border-radius: 5px;
   padding: 4px;
+}
+
+.container_search > svg{
+  width: 26px;
+  color: gray;
 }
 
 .search {
