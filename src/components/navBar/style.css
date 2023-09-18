@@ -1,58 +1,56 @@
-.buttonLogo{
-    background-color: #247ed8;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    margin-left: 1vw;
-    justify-content: space-between;
+.buttonLogo {
+  background-color: #247ed8;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+  justify-content: space-between;
 }
 
-.navButtons > button{
-    padding: 4px;
-    margin-right: 1vw;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    color: white;
+.navButtons > button {
+  padding: 4px;
+  margin-right: 1vw;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
 }
 
 .navButtons > button:first-child,
-.navButtons > button:nth-child(2){
-    background-color: transparent;
+.navButtons > button:nth-child(2) {
+  background-color: transparent;
 }
 
 .navButtons > button:first-child:hover,
 .navButtons > button:nth-child(2):hover,
-.navButtons > button:nth-child(3):hover{
-    font-weight: bold;
+.navButtons > button:nth-child(3):hover {
+  font-weight: bold;
 }
 
-.navButtons > button:nth-child(3){
-    width: 83px;
-    border: 1px solid #fff;
-    background: #247ED8;
-    color: #fff;
+.navButtons > button:nth-child(3) {
+  width: 83px;
+  border: 1px solid #fff;
+  background: #247ed8;
+  color: #fff;
 }
 
-.navButtons > button:nth-child(3):hover{
-    background: #ffff;
-    color: #247ED8;
+.navButtons > button:nth-child(3):hover {
+  background: #ffff;
+  color: #247ed8;
 }
-
-
 
 @media (max-width: 490px) {
-    .buttonLogo{
-        justify-content: space-around;
-        width: 100vw;
-        margin-left: 0vw;
-        flex-direction: column;
-        height: 20vh;
-    }
+  .buttonLogo {
+    justify-content: space-around;
+    width: 100vw;
+    margin-left: 0vw;
+    flex-direction: column;
+    height: 20vh;
+  }
 
-    .navButtons{
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-    }
+  .navButtons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
 }

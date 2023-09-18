@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { VscEdit, VscTrash } from "react-icons/vsc";
 import { useCustomer } from "../../hooks/CustomerHooks";
 import "./style.css";
