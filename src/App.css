@@ -10,3 +10,9 @@
   align-items: center;
   flex-direction: column;
 }
+
+@media (max-width:490px){
+  .container_interno{
+    height: 80vh;
+  }
+}

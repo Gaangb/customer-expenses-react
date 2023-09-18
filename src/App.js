@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 import { useCustomer } from './hooks/CustomerHooks';
 import NavBar from './components/navBar';
+import { SummaryPage } from './pages/summaryPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Routes>
               <Route path="/" element={<LoginPage/>}/>
               <Route path="/customer/:id" element={<CustomerPage/>}/>
+              <Route path="/summary/:id" element={<SummaryPage/>}/>
             </Routes>
           </div>
           </CustomerProvider>
