@@ -34,7 +34,7 @@ export default function FormExpenses() {
     });
   }
 
-  console.log("novaID: ", id)
+  //console.log("novaID: ", id)
   function onConfirmClick() {
     if (valuesNotSet) {
       setShowFormExpense(true);
@@ -91,7 +91,7 @@ export default function FormExpenses() {
           onChange={handleInputChange}
           value={currentExpense.category}
         >
-          <option disabled selected value="">
+          <option disabled value="">
             Selecione a categoria
           </option>
           <option>Água, Energia, Telefone</option>

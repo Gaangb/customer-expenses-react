@@ -17,7 +17,6 @@ export default function ExpenseList() {
     }
 
   },[expenses, isFiltered, setFilteredExpenses, filteredExpenses])
-  console.log(expenses)
 
   const renderExpenses = isFiltered ? filteredExpenses : expenses
 

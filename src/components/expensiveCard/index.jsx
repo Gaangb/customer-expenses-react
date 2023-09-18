@@ -33,7 +33,7 @@ export default function ExpensiveCard({
   function handleDelete(id) {
     const updateExpenses = expenses.filter((expense) => expense.id !== id);
     setExpenses(updateExpenses);
-    console.log(id);
+
   }
 
   return (

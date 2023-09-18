@@ -26,9 +26,9 @@ export function LoginPage() {
       id: 0,
     },
     {
-      email: "your@gmail",
+      email: "yoru@gmail",
       password: "louis",
-      name: "Youru",
+      name: "Yoru",
       id: 1,
     },
   ];
@@ -51,6 +51,7 @@ export function LoginPage() {
     );
 
     if (user) {
+      localStorage.setItem('loggedInUser', JSON.stringify(user));
       navigate(`/customer/${user.id}`, { state: { value: user } });
       setIsLogged(true)
     } else {
@@ -97,7 +98,7 @@ export function LoginPage() {
         />
         {renderError()}
       </div>
-      <Button onClick={onClickLogin} text="Login" customClass="link_button" />
+      <Button onClick={() => onClickLogin()} text="Login" customClass="link_button" />
     </Container>
   );
 }
